@@ -3,15 +3,41 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	<body>
-		<h1>
-			{{title}}
-		</h1>
+		<div fxLayout="row" fxLayout.xs="column" >
+			<h1>
+				{{title}}
+			</h1>
+			<p>
+				<button routerLink="/customers" mat-raised-button>Customers</button>
+			<button routerLink="/orders" mat-raised-button>Orders</button>
+			<button routerLink="" mat-raised-button>Home</button>
+		</p>
+		</div>
+		<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  <div class="item item-1" fxFlex="15%">
+		<mat-menu #appMenu="matMenu">
+		  <button mat-menu-item>Settings</button>
+		  <button mat-menu-item>Help</button>
+		</mat-menu>
 
-		<button routerLink="/customers" mat-raised-button>Customers</button>
-		<button routerLink="/orders" mat-raised-button>Orders</button>
-		<button routerLink="" mat-raised-button>Home</button>
-
+		<button mat-icon-button [matMenuTriggerFor]="appMenu">
+		  <mat-icon>more_vert</mat-icon>
+		</button>
+	</div>
+  <div class="item item-2" fxFlex="20%" fxFlexOrder="3">Item 2</div>
+  <div class="item item-3" fxFlex>
 		<router-outlet></router-outlet>
+	</div>
+</div>
+
+
+
+
 
 	</body>
 </html>
